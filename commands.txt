@@ -1,0 +1,39 @@
+1.  truffle compile
+2.  truffle migrate
+3.  truffle migrate --reset //To reset already deployed smart contract
+4.  Let's say we deployed a smart contract called DaiToken. We do the following to read the data in it
+    > mDai = await DaiToken.deployed()
+    > Returns undefined
+    > mDai
+    > Returns the variable data
+    > name = await mDai.name()
+    > Returns undefined
+    > name
+    > Returns name field that we included in the constructor
+5.  To get all the account addresses as an array
+    > accounts = await web3.eth.getAccounts()
+    > Returns undefined
+    > accounts
+    > Returns an array of accounts addresses which can be indexed as shown
+    > accounts[1]
+    > Returns the second element in the accounts array
+6.  Get the balance in a given account : Done after step4
+    > balance = await mDai.balanceOf(accounts[1])
+        Returns balance which can be stringified as shown below
+    > balance.toString()
+        Returns stringified balance in the specified account
+7.  Convert balance to human readable format (into decimals)
+    > formattedBalance = await web3.utils.fromWei(balance)
+    > Returns undefined
+    > formattedBalance
+    > Returns the formatted balance as a decimal
+8.  To convert a decimal to ether
+    > dec = await web3.utils.toWei(1, 'ether')
+    > Returns undefined
+    > dec
+    > Returns 1000000000000000000 i.e. 1 followed by 18 zeroes which is what we needed
+
+
+Start from 2:05:24
+
+https://www.youtube.com/watch?v=CgXQC4dbGUE
